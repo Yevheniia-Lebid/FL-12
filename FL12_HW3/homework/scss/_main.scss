@@ -1,0 +1,209 @@
+// Write your styles here
+
+body{
+	background: map-get($bckgrnd-colors,body);
+	color: map-get($colors,body);
+	margin: 0;
+}
+.landing-logo{	
+	margin-left: 150px;		
+	img{
+		float: left;
+		padding-top: 10px;
+		width: 40px;
+		height: 40px;
+	}
+	p{
+		margin-left: 50px;
+	    font-size: 18px;
+		font-weight: bold;
+		padding-top: 17px;
+		line-height: 15px;
+		font-family: hind;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	span{
+		display: block;
+		font-size: xx-small;
+		margin-left: 3px;
+	}
+}
+.text_with_marked_word{
+	font-family: Source Sans Pro;
+	position: relative;
+	z-index: 0;
+	&::after{
+		background: map-get($bckgrnd-colors,marked_word);
+		position: absolute;
+		z-index: -1;
+		content: "";
+		height: 40px;
+	}
+}
+.header_heading{
+	@extend .text_with_marked_word;
+	width: 420px;
+	line-height: 60px;
+	word-break: normal;	
+	font-size: 55px;
+	font-weight: bold;
+	margin-left: 150px;
+	margin-top: 45px;
+	margin-bottom: 20px;
+	&::after{
+		left: 0;
+		bottom: 0;
+		width: 230px;
+	}
+}
+.section_text{
+	@extend .text_with_marked_word;
+	font-size: 33px;
+	font-family: Source Sans Pro;
+	font-weight: 600;
+	text-align: center;
+	margin-bottom: 30px;
+	&::after{
+		width: 150px;
+		right: 39.7%;
+		bottom: 16%;
+	}	
+}
+@mixin format_link($color,$font_size,$font-family: unset){
+	color: $color;
+	font-size: $font_size;
+	font-family: $font_family;
+}
+
+.section_link{
+	@include format_link(map-get($colors,section_link),12px);
+}
+
+.section_banner_heading{
+	@extend .text_with_marked_word;
+	font-size: 27px;
+	font-weight: bold;
+	margin-left: 130px;
+	margin-bottom: 0;
+	margin-top: 16px;
+	&::after{
+		width: 57px;
+		right: 55%;
+		bottom: 2%;
+	}	
+}
+.section_banner_text{
+	margin-left: 130px;
+	margin-top: 3px;
+	font-family: hind;
+	font-size: 14.3px;
+	color: map-get($colors,section_card);
+}
+.header-wrap{
+	background: $header-background-image no-repeat;
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+	height: 560px;	
+	border-radius: 0 0 40% 0;
+}
+.header_text{
+	width: 500px;
+	margin-left: 115px;
+	font-family: hind;
+	white-space: pre;
+	font-size: 13px;
+	word-break: normal;
+}
+
+@mixin button($background,$color,$fontfamily: hind,$width: 110px,$height: 35px){
+	width: $width;
+	height: $height;
+	background: $background;
+	border-color: $background;
+	border-radius: 3px;
+	border-style: none;
+	font-family: $fontfamily;
+	color: $color;	
+}
+
+.header_button{
+	@include button(map-get($bckgrnd-colors,button),map-get($colors,button));
+	margin-left: 160px;
+}
+.login{
+	@include format_link(map-get($colors,header_link),16px,hind);
+	margin-left: 120px;
+}
+.section_card, .footer-wrap{
+	background: map-get($bckgrnd-colors,section_card);
+	color: map-get($colors,section_card);
+}
+.section_card_wrap{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.section_banner{
+	width: 62%;
+	height: 7.5%;
+	margin: 0 auto;
+	border-radius: 3px;
+	display: flex;
+	transform: translateY(50%);
+	background: linear-gradient(to right, map-get($bckgrnd-colors,section_banner_left), map-get($bckgrnd-colors,section_banner_right));
+}
+.section_banner_button{
+	@include button(map-get($bckgrnd-colors,button),map-get($colors,button));
+	margin-top: 28px;
+	margin-left: 190px;
+}
+.section_card{
+	display: flex;
+	border-radius: 5px;
+	padding: 15px;
+	width: 55%;
+	margin-bottom: 20px;
+	font-family: hind;
+	text-align: center;
+}	
+.section_card_heading{
+	color: map-get($colors,section_card_text_heading);
+	font-size: 19px;
+	margin-top: 40px;
+	font-family: Source Sans Pro;
+}
+.section_card_text{
+	font-family: hind;
+	font-size: 12px;
+	margin-left: 75px;
+	margin-right: 75px;
+	text-align: justify;
+}
+.section_card_img{
+	border-radius: 5px;
+	width: 100%;
+	height: auto;
+}
+.footer-wrap {
+	display: flex;
+	align-items: center;
+	height: 150px;
+	justify-content: space-around;
+	padding-top: 50px;
+	margin-left: -150px;
+}
+.footer_text{
+	width: 14%;
+	font-family: hind;
+	font-size: 11px;
+}
+.footer-logo{
+	@extend .landing-logo;
+	margin-left: 0;
+}
+.footer-cr{
+	font-family: hind;
+	font-size: 12px;
+}
